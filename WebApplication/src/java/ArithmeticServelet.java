@@ -1,6 +1,8 @@
 
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,7 +44,9 @@ public class ArithmeticServelet extends HttpServlet {
 
 		}
 		
-		response.getWriter().println("Result: "+result);
+		request.setAttribute("res", result);
+		RequestDispatcher rd=request.getRequestDispatcher("/DemoServlet");
+		rd.forward(request, response);
 
 
 	}
