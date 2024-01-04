@@ -20,6 +20,8 @@ public class LoginServlet extends HttpServlet {
 //		PrintWriter out=response.getWriter();
 		String enteredName=request.getParameter("user");
 		String enteredPassword=request.getParameter("user");
+		HttpSession session =request.getSession();
+		session.setAttribute("user", enteredUser);
 		
 		if(isValidUser(enteredName,enteredPassword)) {
 			response.sendRedirect("http://localhost:8082/WebApplication/ValidServlet");
