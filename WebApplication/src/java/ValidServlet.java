@@ -18,7 +18,8 @@ public class ValidServlet extends HttpServlet {
 		
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
-		out.println("Login Successful");
+		Object user=session.getAttribute("user");
+		out.println("<h2>Login successful "+user+"</h2>");
 	}
 
 }
